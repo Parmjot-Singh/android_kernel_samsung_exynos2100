@@ -1062,7 +1062,6 @@ static ssize_t isg5320a_direct_store(struct device *dev,
 	return size;
 }
 
-#define MSG_LEN		256
 static ssize_t isg5320a_direct_show(struct device *dev,
 				    struct device_attribute *attr, char *buf)
 {
@@ -1070,7 +1069,8 @@ static ssize_t isg5320a_direct_show(struct device *dev,
 	int ret = 0;
 	int len;
 	u8 addr;
-	char msg[MSG_LEN];
+	const int msg_len = 256;
+	char msg[msg_len];
 	struct isg5320a_data *data = dev_get_drvdata(dev);
 	direct_info *direct = (direct_info *)&data->direct;
 	u8 buf8[DIRECT_BUF_COUNT] = {0,};
@@ -1093,11 +1093,11 @@ static ssize_t isg5320a_direct_show(struct device *dev,
 		addr += max_len;
 
 		for (i = 0; i < max_len; i++) {
-			count += snprintf(msg, MSG_LEN, "0x%02X ", buf8[i]);
-			strncat(buf, msg, MSG_LEN);
+			count += snprintf(msg, msg_len, "0x%02X ", buf8[i]);
+			strncat(buf, msg, msg_len);
 		}
-		count += snprintf(msg, MSG_LEN, "\n");
-		strncat(buf, msg, MSG_LEN);
+		count += snprintf(msg, msg_len, "\n");
+		strncat(buf, msg, msg_len);
 
 		len -= max_len;
 	}

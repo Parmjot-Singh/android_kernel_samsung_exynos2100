@@ -13655,7 +13655,6 @@ F:	arch/mips/configs/generic/board-ranchu.config
 
 RANDOM NUMBER DRIVER
 M:	"Theodore Ts'o" <tytso@mit.edu>
-M:	Jason A. Donenfeld <Jason@zx2c4.com>
 S:	Maintained
 F:	drivers/char/random.c
 
@@ -17879,8 +17878,7 @@ S:	Supported
 F:	sound/xen/*
 
 XFS FILESYSTEM
-M:	Chandan Babu R <chandan.babu@oracle.com>
-M:	Darrick J. Wong <djwong@kernel.org>
+M:	Darrick J. Wong <darrick.wong@oracle.com>
 M:	linux-xfs@vger.kernel.org
 L:	linux-xfs@vger.kernel.org
 W:	http://xfs.org/
